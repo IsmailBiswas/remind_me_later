@@ -18,7 +18,7 @@ python -m venv venv && source ./venv/bin/activate && pip install -r requirements
   
 ```
 
-Make migrations
+Migrate the DB
 ```
 ./manage.py migrate
   
@@ -37,9 +37,6 @@ Visit `http://localhost:8000/reminders/` there you will be able to test this API
 
 Or Use **curl** to test this API
 
-**GET**
-```curl -X GET "http://localhost:8000/reminders/"   -H "Content-Type: application/json"```
-
 **POST**
 
 ```
@@ -50,6 +47,18 @@ curl -X POST "http://localhost:8000/reminders/" \
     "trigger_time": "2025-05-30T16:58:00Z"
   }'
   
+```
+
+**GET**: All reminders
+
+```
+curl -X GET "http://localhost:8000/reminders/"   -H "Content-Type: application/json"
+```
+
+**GET**: Retrieve a specific reminder using its unique identifier (e.g., id 1)
+
+```
+curl -X GET "http://localhost:8000/reminders/1/"   -H "Content-Type: application/json"
 ```
 
 **PUT**
